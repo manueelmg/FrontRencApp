@@ -1,0 +1,148 @@
+header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  color: #f1f1f1;
+  padding: 15px;
+  height: 60px;
+  z-index: 1;
+  top: 0;
+  /* box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.2); */
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.drawer_title {
+  color: #111;
+  width: calc(100% - 20px);
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 0;
+  margin: auto;
+  height: 20px;
+  margin-left: 300px;
+}
+nav > input[type="checkbox"] {
+  display: none;
+}
+#drawer_open {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: bold;
+  width: 20px;
+}
+#drawer {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  background: var(--primary-color);
+  height: 100%;
+  width: 300px;
+  max-width: 300px;
+  transition: left 0.5s ease;
+  z-index: 3;
+  box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.1);
+}
+#drawer_overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  /* display: block; */
+  /* inset: 0;
+  width: 0; */
+  width: 0;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+}
+#drawer_toggle:checked + #drawer {
+  left: 0;
+}
+#drawer_toggle:checked ~ label#drawer_overlay {
+  width: 100%;
+}
+#drawer_close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+#sidebar {
+  width: 300px;
+  height: 100%;
+  background-color: var(--primary-color);
+  color: #f1f1f1;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: block;
+}
+main {
+  display: flex;
+  width: calc(100% - 300px);
+  max-width: calc(100% - 300px);
+  margin-left: 300px;
+  min-height: calc(100vh - 60px);
+}
+.container_vertical_list {
+  margin: 60px 0px 0px 0px;
+  height: calc(100vh - 80px);
+  overflow: auto;
+}
+.vertical_list {
+  display: block;
+  padding: 15px;
+  list-style-type: none;
+
+  padding: 0;
+  align-items: center;
+}
+.vertical_list > li > a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
+  display: block;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+.vertical_list > li > a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.container_user_drawer {
+  padding: 0 15px;
+}
+.drawer_container_img {
+  margin: 30px 15px -40px 30px;
+}
+
+.container_user_drawer .ui_list {
+  background-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  #sidebar {
+    display: none;
+  }
+  main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+  }
+  .drawer_title {
+    margin: 0;
+  }
+}
+
+.container_app {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
